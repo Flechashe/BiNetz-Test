@@ -18,3 +18,6 @@ class Patient(models.Model):
 
     class Meta:
         db_table = 'patient'
+
+    def __str__(self):
+        return '%s %s dni %s' % (self.nombre, self.apellido, str(self.dni))
