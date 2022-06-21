@@ -28,6 +28,7 @@ def process_register_patient(request):
 
 def edit_patient(request, pk):
     patient_to_edit = Patient.objects.get(id=pk)
+    patient_to_edit.fecha_de_nacimiento = patient_to_edit.fecha_de_nacimiento.strftime('%Y-%m-%d')
     return render(request, 'patients/edit_patient.html', {'patient': patient_to_edit})
 
 

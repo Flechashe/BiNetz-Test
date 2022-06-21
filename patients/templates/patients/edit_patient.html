@@ -48,6 +48,9 @@
                             value="F"
                             name="sexo"
                             required
+                            {% if patient.sexo == 'F' %}
+                            checked="checked"
+                            {% endif %}
                         />
                         <label for="femenino">Femenino</label>
                         <input
@@ -56,6 +59,9 @@
                             value="M"
                             name="sexo"
                             required
+                            {% if patient.sexo == 'M' %}
+                            checked="checked"
+                            {% endif %}
                         />
                         <label for="masculino">Masculino</label>
                     </div>
