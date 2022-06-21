@@ -1,5 +1,4 @@
 (function () {
-
     const deleteBtn = document.querySelectorAll('.delete-btn');
 
     deleteBtn.forEach((btn) => {
@@ -12,5 +11,4 @@
             }
         });
     });
-
 })();

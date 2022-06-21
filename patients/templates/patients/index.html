@@ -1,130 +1,145 @@
-{% extends './base.html' %} {% block title %}Índice{% endblock %}{% block body %}
+{% extends './base.html' %} {% block title %}Índice{% endblock %}
+{% block body %}
 <div class="row">
-  <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
-    <h2>Registrar un paciente</h2>
-    <div class="card">
-      <div class="card-body">
-        <form action="/registrar-paciente/" method="POST">
-          {% csrf_token %}
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              class="form-control"
-              placeholder="Nombre"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="apellido"
-              name="apellido"
-              class="form-control"
-              placeholder="Apellido"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="dni"
-              name="dni"
-              class="form-control"
-              placeholder="DNI"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="radio"
-              id="femenino"
-              value="F"
-              name="sexo"
-              required
-              checked="checked"
-            />
-            <label for="femenino">Femenino</label>
-            <input
-              type="radio"
-              id="masculino"
-              value="M"
-              name="sexo"
-              required
-            />
-            <label for="masculino">Masculino</label>
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="email"
-              name="email"
-              class="form-control"
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="date"
-              id="fecha_de_nacimiento"
-              name="fecha_de_nacimiento"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="cobertura_medica"
-              name="cobertura_medica"
-              class="form-control"
-              placeholder="Cobertura médica"
-              required
-            />
-          </div>
-          <div class="form-group py-2 d-grid gap-2">
-            <button type="submit" class="btn btn-success">Registrar</button>
-          </div>
-        </form>
-      </div>
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+        <h2>Registrar un paciente</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/registrar-paciente/" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            class="form-control"
+                            placeholder="Nombre"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            class="form-control"
+                            placeholder="Apellido"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="dni"
+                            name="dni"
+                            class="form-control"
+                            placeholder="DNI"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="radio"
+                            id="femenino"
+                            value="F"
+                            name="sexo"
+                            required
+                            checked="checked"
+                        />
+                        <label for="femenino">Femenino</label>
+                        <input
+                            type="radio"
+                            id="masculino"
+                            value="M"
+                            name="sexo"
+                            required
+                        />
+                        <label for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Email"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="date"
+                            id="fecha_de_nacimiento"
+                            name="fecha_de_nacimiento"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="cobertura_medica"
+                            name="cobertura_medica"
+                            class="form-control"
+                            placeholder="Cobertura médica"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2 d-grid gap-2">
+                        <button type="submit" class="btn btn-success">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-    <h1>Lista de pacientes</h1>
-    <div class="table-responsive py-2">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-            <th>Sexo</th>
-            <th>Email</th>
-            <th>Fecha de nacimiento</th>
-            <th>Cobertura médica</th>
-            <th colspan="2">Opciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for patient in patients %}
-          <tr>
-            <td>{{patient.nombre}}</td>
-            <td>{{patient.apellido}}</td>
-            <td>{{patient.dni}}</td>
-            <td>{{patient.sexo}}</td>
-            <td>{{patient.email}}</td>
-            <td>{{patient.fecha_de_nacimiento}}</td>
-            <td>{{patient.cobertura_medica}}</td>
-            <td><a href="editar-paciente/{{patient.id}}" class="btn btn-info">Editar</a></td>
-            <td><a href="eliminar-paciente/{{patient.id}}" class="btn btn-danger delete-btn">Eliminar</a></td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
+        <h1>Lista de pacientes</h1>
+        <div class="table-responsive py-2">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>DNI</th>
+                        <th>Sexo</th>
+                        <th>Email</th>
+                        <th>Fecha de nacimiento</th>
+                        <th>Cobertura médica</th>
+                        <th colspan="2">Opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for patient in patients %}
+                    <tr>
+                        <td>{{patient.nombre}}</td>
+                        <td>{{patient.apellido}}</td>
+                        <td>{{patient.dni}}</td>
+                        <td>{{patient.sexo}}</td>
+                        <td>{{patient.email}}</td>
+                        <td>{{patient.fecha_de_nacimiento}}</td>
+                        <td>{{patient.cobertura_medica}}</td>
+                        <td>
+                            <a
+                                href="editar-paciente/{{patient.id}}"
+                                class="btn btn-info"
+                                >Editar</a
+                            >
+                        </td>
+                        <td>
+                            <a
+                                href="eliminar-paciente/{{patient.id}}"
+                                class="btn btn-danger delete-btn"
+                                >Eliminar</a
+                            >
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
-  </div>
 </div>
 {% endblock %}

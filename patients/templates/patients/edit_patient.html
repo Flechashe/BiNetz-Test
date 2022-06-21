@@ -2,96 +2,104 @@
 {% block title %}Editando - {{patient.nombre}} {{patient.apellido}}{% endblock %}
 {% block body %}
 <div class="row">
-  <div class="col-md-4 offset-md-4">
-    <h2>Editar paciente</h2>
-    <div class="card">
-      <div class="card-body">
-        <form action="/procesar-edicion/{{patient.id}}" method="POST">
-          {% csrf_token %}
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="nombre"
-              name="nombre"
-              value="{{patient.nombre}}"
-              class="form-control"
-              placeholder="Nombre"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="apellido"
-              name="apellido"
-              value="{{patient.apellido}}"
-              class="form-control"
-              placeholder="Apellido"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="dni"
-              name="dni"
-              value="{{patient.dni}}"
-              class="form-control"
-              placeholder="DNI"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="radio"
-              id="femenino"
-              value="F"
-              name="sexo"
-              required
-            />
-            <label for="femenino">Femenino</label>
-            <input type="radio" id="masculino" value="M" name="sexo" required />
-            <label for="masculino">Masculino</label>
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="email"
-              name="email"
-              value="{{patient.email}}"
-              class="form-control"
-              placeholder="Email"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="date"
-              id="fecha_de_nacimiento"
-              name="fecha_de_nacimiento"
-              value="{{patient.fecha_de_nacimiento}}"
-              class="form-control"
-              required
-            />
-          </div>
-          <div class="form-group py-2">
-            <input
-              type="text"
-              id="cobertura_medica"
-              name="cobertura_medica"
-              value="{{patient.cobertura_medica}}"
-              class="form-control"
-              placeholder="Cobertura médica"
-              required
-            />
-          </div>
-          <div class="form-group py-2 d-grid gap-2">
-            <button type="submit" class="btn btn-success">Registrar</button>
-          </div>
-        </form>
-      </div>
+    <div class="col-md-4 offset-md-4">
+        <h2>Editar paciente</h2>
+        <div class="card">
+            <div class="card-body">
+                <form action="/procesar-edicion/{{patient.id}}" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            value="{{patient.nombre}}"
+                            class="form-control"
+                            placeholder="Nombre"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            value="{{patient.apellido}}"
+                            class="form-control"
+                            placeholder="Apellido"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="dni"
+                            name="dni"
+                            value="{{patient.dni}}"
+                            class="form-control"
+                            placeholder="DNI"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="radio"
+                            id="femenino"
+                            value="F"
+                            name="sexo"
+                            required
+                        />
+                        <label for="femenino">Femenino</label>
+                        <input
+                            type="radio"
+                            id="masculino"
+                            value="M"
+                            name="sexo"
+                            required
+                        />
+                        <label for="masculino">Masculino</label>
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            value="{{patient.email}}"
+                            class="form-control"
+                            placeholder="Email"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="date"
+                            id="fecha_de_nacimiento"
+                            name="fecha_de_nacimiento"
+                            value="{{patient.fecha_de_nacimiento}}"
+                            class="form-control"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2">
+                        <input
+                            type="text"
+                            id="cobertura_medica"
+                            name="cobertura_medica"
+                            value="{{patient.cobertura_medica}}"
+                            class="form-control"
+                            placeholder="Cobertura médica"
+                            required
+                        />
+                    </div>
+                    <div class="form-group py-2 d-grid gap-2">
+                        <button type="submit" class="btn btn-success">
+                            Registrar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
 
 {% endblock %}
