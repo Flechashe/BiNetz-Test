@@ -58,6 +58,7 @@ def delete_patient(request, pk):
     patient_to_delete.delete()
     return redirect('/')
 
+# 🢃 Estas vistas fueron un primer approach, después cambié el rumbo y las abandoné.
 
 # def list(request):
 #     patient_list = Patient.objects.all()
