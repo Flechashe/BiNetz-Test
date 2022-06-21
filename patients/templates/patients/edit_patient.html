@@ -8,7 +8,8 @@
             <div class="card-body">
                 <form action="/procesar-edicion/{{patient.id}}" method="POST">
                     {% csrf_token %}
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="nombre">Nombre</label>
                         <input
                             type="text"
                             id="nombre"
@@ -19,7 +20,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="apellido">Apellido</label>
                         <input
                             type="text"
                             id="apellido"
@@ -30,7 +32,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="dni">DNI</label>
                         <input
                             type="text"
                             id="dni"
@@ -41,7 +44,10 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <div>
+                            <label for="sexo">Sexo</label>
+                        </div>
                         <input
                             type="radio"
                             id="femenino"
@@ -65,7 +71,8 @@
                         />
                         <label for="masculino">Masculino</label>
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="email">Email</label>
                         <input
                             type="text"
                             id="email"
@@ -76,7 +83,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="fecha_de_nacimiento">Fecha de nacimiento</label>
                         <input
                             type="date"
                             id="fecha_de_nacimiento"
@@ -86,7 +94,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="cobertura_medica">Cobertura médica</label>
                         <input
                             type="text"
                             id="cobertura_medica"
@@ -97,7 +106,7 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2 d-grid gap-2">
+                    <div class="form-group py-1 d-grid gap-2">
                         <button type="submit" class="btn btn-success">
                             Guardar
                         </button>

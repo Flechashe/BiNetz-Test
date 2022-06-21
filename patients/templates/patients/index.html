@@ -1,7 +1,7 @@
 {% extends './base.html' %} {% block title %}Índice{% endblock %}
 {% block body %}
 <div class="row">
-    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
+    <div class="col-sm-12 col-md-6 col-lg-3 col-xl-3">
         <!-- {% if messages %}
         {% for message in messages %}
         <div class="alert alert-dismissible alert-success">
@@ -10,12 +10,13 @@
         </div>
         {% endfor %}
         {% endif %} -->
-        <h2>Registrar un paciente</h2>
+        <h3>Registrar un paciente</h3>
         <div class="card">
             <div class="card-body">
                 <form action="/registrar-paciente/" method="POST">
                     {% csrf_token %}
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="nombre">Nombre</label>
                         <input
                             type="text"
                             id="nombre"
@@ -25,7 +26,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="apellido">Apellido</label>
                         <input
                             type="text"
                             id="apellido"
@@ -35,7 +37,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="dni">DNI</label>
                         <input
                             type="text"
                             id="dni"
@@ -45,7 +48,10 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <div>
+                            <label for="sexo">Sexo</label>
+                        </div>
                         <input
                             type="radio"
                             id="femenino"
@@ -64,7 +70,8 @@
                         />
                         <label for="masculino">Masculino</label>
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="email">Email</label>
                         <input
                             type="text"
                             id="email"
@@ -74,7 +81,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="fecha_de_nacimiento">Fecha de nacimiento</label>
                         <input
                             type="date"
                             id="fecha_de_nacimiento"
@@ -83,7 +91,8 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2">
+                    <div class="form-group py-1">
+                        <label for="cobertura_medica">Cobertura médica</label>
                         <input
                             type="text"
                             id="cobertura_medica"
@@ -93,7 +102,7 @@
                             required
                         />
                     </div>
-                    <div class="form-group py-2 d-grid gap-2">
+                    <div class="form-group py-1 d-grid gap-2">
                         <button type="submit" class="btn btn-success">
                             Registrar
                         </button>
@@ -103,8 +112,8 @@
         </div>
     </div>
 
-    <div class="col-sm-12 col-md-6 col-lg-8 col-xl-8">
-        <h1>Lista de pacientes</h1>
+    <div class="col-sm-12 col-md-6 col-lg-9 col-xl-9">
+        <h2>Lista de pacientes</h2>
         <div class="table-responsive py-2">
             <table class="table table-striped">
                 <thead>
